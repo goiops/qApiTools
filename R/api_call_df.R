@@ -8,7 +8,7 @@
 #' that.
 #'
 #' @param start_date_txt A character, indicating the start date for the data required
-#' @param end_date_txtA character, indicating the end date for the data required
+#' @param end_date_txt character, indicating the end date for the data required
 #' @param api_key a character, the bearer token provided to access the API. Provided by end user.
 #' @param root A character, as the root path of the API endpoint - usually some kind of http://www.qqq.com/
 #' @param path A character, as the specific path of the API - i.e. "api/myapi/v1/apione"
