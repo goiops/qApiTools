@@ -25,6 +25,7 @@
 #' @importFrom jsonlite toJSON
 #' @importFrom jsonlite fromJSON
 #' @importFrom httr content
+#' @importFrom httr GET
 #'
 #' @author Matt Simmons mattsimmons@qantas.com.au
 
@@ -35,7 +36,7 @@ api_call_raw <- function(root, path, start_date, end_date, api_key, retries = 10
   url <- httr::modify_url(url, query = paste("startDate=",start_date,"&endDate=",end_date, sep = ""))
   # add the required API gateway headers
 
-  safe_GET <- purrr::safely(GET, otherwise = "Request Failed")
+  safe_GET <- purrr::safely(httr::GET, otherwise = "Request Failed")
   # try 'retries' times to hit the API - if GET returns an error, try again, don't break the execution
   # I haven't actually seen this work in the wild - if it doesn't work as promised... sorry!
   for (k in 1:retries) {
