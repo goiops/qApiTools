@@ -18,6 +18,13 @@
 #' simple_out <- api_call_raw("http://www.qqq.com/", "api/myapi/v1/apione", "2019-01-01", "2019-01-01", "aaaa-aaa-aaaa-aaa")
 #' }
 #' @export
+#' @importFrom httr modify_url
+#' @importFrom purrr safely
+#' @importFrom httr add_headers
+#' @importFrom httr http_error
+#' @importFrom jsonlite toJSON
+#' @importFrom jsonlite fromJSON
+#' @importFrom httr content
 
 
 api_call_raw <- function(root, path, start_date, end_date, api_key, retries = 10) {
