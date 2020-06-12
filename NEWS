@@ -1,0 +1,43 @@
+#
+# API Data Retrieval
+# Matt Simmons - Created 09/01/2019 - Updated 12/11/2019
+#
+# This is intended to enable the creation of raw data from the FlightStats ('FlightMarketData')
+# API. It works by making API calls, flattening the JSON response and then turning that
+# into a tibble that can be output. The tibble is of varying size - the JSON file doesn't
+# always have all attributes, so it's agnostic to what columns are present and will add in new
+# ones as they appear.
+#
+# v0.1 - Initial build. No testing for duplicates or data quality, just concatenating whatever
+#        you get.
+# v0.2 - Altered the way the API key is passed so it isn't hidden in the function, as well as
+#        changing the way the length of the returned list is calculated (it should now be the sum of all elements)
+#        also moved all the functions into 'Functions.R'
+# v0.3 - Abstracted the function up a level so it's plug-and-play - all you need to to is call
+#        api.call.df() with the right dates and keys and all the map stuff is squirrelled away.
+# v0.31- Internalized the library calls to Functions.R
+# v0.4 - the GET function was occasionally failing and stopping the process, probably because
+#        the API Gateway is bad. I've replaced it with a safe_GET using purrr that will loop over if it errors
+#        'retries' (default 10) times. I'm not... 100% sure it will work. Good luck future me!
+# v0.41- Made a small change to switch dplyr::bind_rows to data.table::rbindlist as it's much faster. I may regret it!
+# v0.42- Turns out I did regret it - had to add fill=TRUE to account column mismatches. Might remove the speed benefit...
+# v0.43- Changed a minor way the table(elements) function works to try and shave some more time off the function.
+# v0.5-  Moved the root path to a externally facing function argument, so security don't yell at me,
+#        in prep to move all this code to a package.
+# v1.0-  Created as a package! Very nice for me.
+#
+#
+# TODO: Does this return duplicates? (no idea) Why do some fields appear and others don't? (no idea)
+#       Also would be good to test that we're really getting all the rows in each response
+#       Maybe we should decide ahead of time what columns we want and just pull those - would be faster
+#       Doesn't have any error handling - so if you put in the wrong thing, funny stuff will happen
+#       Handle failures more gracefully
+#       Make it faster! It's very slow. The map() calls are slow - maybe parallelise them?
+#       Or parallelize the calls?
+#       Probably - other things are bad too.
+#       Put in an estimate of the remaining time by recording the time between calls?
+#
+# DONE: We should also have a higher-level interface that handles the
+#       date sequencing bit as well.
+#       Also won't handle a failed response from the API gracefully
+#       I shouldn't use dots in a function call (Hadley Wickam would be disapppointed in me!)
