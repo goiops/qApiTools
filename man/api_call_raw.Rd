@@ -26,3 +26,6 @@ Calls the API endpoint and returns a list containing the output
 This function calls an arbitrary API endpoint and returns the output,
 along with some informative error handling. Wouldn't usually be used directly.
 }
+\author{
+Matt Simmons mattsimmons@qantas.com.au
+}

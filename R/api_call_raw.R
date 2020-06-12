@@ -25,6 +25,8 @@
 #' @importFrom jsonlite toJSON
 #' @importFrom jsonlite fromJSON
 #' @importFrom httr content
+#'
+#' @author Matt Simmons mattsimmons@qantas.com.au
 
 
 api_call_raw <- function(root, path, start_date, end_date, api_key, retries = 10) {
