@@ -24,7 +24,7 @@
 # v0.43- Changed a minor way the table(elements) function works to try and shave some more time off the function.
 # v0.5-  Moved the root path to a externally facing function argument, so security don't yell at me,
 #        in prep to move all this code to a package.
-# v1.0-  Created as a package! Very nice for me.
+# v1.0-  Created as a package! Very nice for me. Also changed all the function names to have _ instead of .
 #
 #
 # TODO: Does this return duplicates? (no idea) Why do some fields appear and others don't? (no idea)
