@@ -1,6 +1,6 @@
 #
 # API Data Retrieval
-# Matt Simmons - Created 09/01/2019 - Updated 12/11/2019
+# Matt Simmons - Created 09/01/2019 - Updated 12/06/2020
 #
 # This is intended to enable the creation of raw data from the FlightStats ('FlightMarketData')
 # API. It works by making API calls, flattening the JSON response and then turning that
