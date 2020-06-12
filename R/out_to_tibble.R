@@ -28,7 +28,7 @@ out_to_tibble <- function(out_content) {
   # then we use rlist's flatten, which has the nice property of concatenating the names
   all_elements_flat <- purrr::map(out_content_flat, rlist::list.flatten)
   # then we iterate element.to.tibble across it to make nice tibbles
-  all_elements_tibble <- purrr::map(all_elements_flat, element.to.tibble)
+  all_elements_tibble <- purrr::map(all_elements_flat, element_to_tibble)
   # then we bind them all together (could be map_dfr, really)
   all_elements_tibble <- data.table::rbindlist(all_elements_tibble, fill = TRUE)
   print(paste("Tibble created with",nrow(all_elements_tibble),"rows", sep = " "))
