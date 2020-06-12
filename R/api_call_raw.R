@@ -13,7 +13,7 @@
 #' @param api_key a character, the bearer token provided to access the API. Provided by end user.
 #' @param retries an optional numeric, indicating how many times the function should try to hit the API in case of an error
 #'
-#' @example
+#' @examples
 #' \dontrun{
 #' simple_out <- api_call_raw("http://www.qqq.com/", "api/myapi/v1/apione", "2019-01-01", "2019-01-01", "aaaa-aaa-aaaa-aaa")
 #' }

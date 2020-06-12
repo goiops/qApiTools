@@ -26,6 +26,11 @@ Calls the API endpoint and returns a list containing the output
 This function calls an arbitrary API endpoint and returns the output,
 along with some informative error handling. Wouldn't usually be used directly.
 }
+\examples{
+\dontrun{
+simple_out <- api_call_raw("http://www.qqq.com/", "api/myapi/v1/apione", "2019-01-01", "2019-01-01", "aaaa-aaa-aaaa-aaa")
+}
+}
 \author{
 Matt Simmons mattsimmons@qantas.com.au
 }
