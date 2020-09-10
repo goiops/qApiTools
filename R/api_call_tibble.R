@@ -18,7 +18,6 @@
 #' df <- map_dfr(dates, ~ api.call.tibble(root = root, path = path, date_used = .x, api_key = api_key))
 #' df
 #' }
-#' @export
 #'
 #' @author Matt Simmons mattsimmons@qantas.com.au
 

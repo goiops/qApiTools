@@ -18,3 +18,5 @@ Imports:
     tibble,
     rlist,
     data.table
+URL: https://github.com/goiops/qApiTools
+BugReports: https://github.com/goiops/qApiTools/issues

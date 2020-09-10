@@ -14,7 +14,6 @@
 #' all_elements_flat <- purrr::map(out_content_flat, rlist::list.flatten)
 #' all_elements_tibble <- purrr::map(all_elements_flat, element.to.tibble)
 #' }
-#' @export
 #' @importFrom magrittr %>%
 #' @importFrom tibble as_tibble
 #'

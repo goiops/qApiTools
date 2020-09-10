@@ -13,7 +13,6 @@
 #' out_content <- api_call_raw(root, path, date_used, date_used, api_key)
 #' out_tibble <- out_to_tibble(out_content)
 #' }
-#' @export
 #' @importFrom purrr flatten
 #' @importFrom purrr flatten
 #' @importFrom rlist list.flatten
