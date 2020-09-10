@@ -20,7 +20,7 @@
 #'
 #' @author Matt Simmons mattsimmons@qantas.com.au
 
-element.to.tibble <- function(element) {
+element_to_tibble <- function(element) {
   # each element contains some recursive columns that don't have unique names
   # this drops them by selecting only the unique elements, then converting to a tibble
   elements_names <- names(element)
