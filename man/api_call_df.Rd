@@ -4,7 +4,7 @@
 \alias{api_call_df}
 \title{API Call (dataframe)}
 \usage{
-api_call_df(start_date_txt, end_date_txt, api_key, root, path)
+api_call_df(start_date_txt, end_date_txt, api_key, root, path, retries = 10)
 }
 \arguments{
 \item{start_date_txt}{A character, indicating the start date for the data required}
@@ -16,6 +16,8 @@ api_call_df(start_date_txt, end_date_txt, api_key, root, path)
 \item{root}{A character, as the root path of the API endpoint - usually some kind of http://www.qqq.com/}
 
 \item{path}{A character, as the specific path of the API - i.e. "api/myapi/v1/apione"}
+
+\item{retries}{an optional numeric, indicating how many times the function should try to hit the API in case of an error}
 }
 \description{
 Make sequential calls on an API, one day at a time, and return a concatenated tibble

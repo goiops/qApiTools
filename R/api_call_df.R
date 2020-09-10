@@ -12,6 +12,7 @@
 #' @param api_key a character, the bearer token provided to access the API. Provided by end user.
 #' @param root A character, as the root path of the API endpoint - usually some kind of http://www.qqq.com/
 #' @param path A character, as the specific path of the API - i.e. "api/myapi/v1/apione"
+#' @param retries an optional numeric, indicating how many times the function should try to hit the API in case of an error
 #'
 #' @examples
 #' \dontrun{
@@ -34,8 +35,8 @@
 #'
 #' @author Matt Simmons mattsimmons@qantas.com.au
 
-api_call_df <- function(start_date_txt, end_date_txt, api_key, root, path) {
+api_call_df <- function(start_date_txt, end_date_txt, api_key, root, path, retries = 10) {
   dates <- seq(as.Date(start_date_txt), as.Date(end_date_txt), by = "days") %>% as.character()
-  df <- map_dfr(dates, ~ api_call_tibble(root = root, path = path, date_used = .x, api_key = api_key))
+  df <- map_dfr(dates, ~ api_call_tibble(root = root, path = path, date_used = .x, api_key = api_key, retries = retries))
   return(df)
 }

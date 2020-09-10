@@ -21,8 +21,8 @@
 #'
 #' @author Matt Simmons mattsimmons@qantas.com.au
 
-api_call_tibble <- function(root, path, date_used, api_key) {
-  out_content <- api_call_raw(root, path, date_used, date_used, api_key)
+api_call_tibble <- function(root, path, date_used, api_key, retries) {
+  out_content <- api_call_raw(root, path, date_used, date_used, api_key, retries)
   out_tibble <- out_to_tibble(out_content)
   return(out_tibble)
 }

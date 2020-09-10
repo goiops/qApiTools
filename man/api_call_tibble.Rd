@@ -4,7 +4,7 @@
 \alias{api_call_tibble}
 \title{API Call (Tibble)}
 \usage{
-api_call_tibble(root, path, date_used, api_key)
+api_call_tibble(root, path, date_used, api_key, retries)
 }
 \arguments{
 \item{root}{A character, as the root path of the API endpoint - usually some kind of http://www.qqq.com/}
