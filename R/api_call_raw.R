@@ -17,7 +17,6 @@
 #' \dontrun{
 #' simple_out <- api_call_raw("http://www.qqq.com/", "api/myapi/v1/apione", "2019-01-01", "2019-01-01", "aaaa-aaa-aaaa-aaa")
 #' }
-#' @export
 #' @importFrom httr modify_url
 #' @importFrom purrr safely
 #' @importFrom httr add_headers

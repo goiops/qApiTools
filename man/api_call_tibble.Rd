@@ -29,6 +29,7 @@ dates <- seq(as.Date(start_date_txt), as.Date(end_date_txt), by = "days") \%>\% 
 df <- map_dfr(dates, ~ api.call.tibble(root = root, path = path, date_used = .x, api_key = api_key))
 df
 }
+
 }
 \author{
 Matt Simmons mattsimmons@qantas.com.au
